@@ -1,0 +1,399 @@
+/**********************************************
+*** GENERAL
+**********************************************/
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Tangerine&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+
+
+
+
+* {
+
+    
+    padding: 0;
+    box-sizing: content-box;
+}
+
+html {
+    overflow-x: hidden;
+    width: 95vw;
+    font-family: 'Share Tech Mono', monospace;
+    text-shadow: 0 0 10px #8630ab;
+    background: rgb(0, 0, 2);
+    color: #eee;
+    scroll-behavior: smooth;
+    font-size: 48px;
+}
+
+
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+nav {
+    width: inherit;
+    font-size: 0.6em;
+
+
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0.5em;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #eee;
+}
+
+
+section.page {
+    display: inline-block;
+    width: 100%;
+    padding: 0;
+    height: 100vh;
+    min-height: fit-content;
+    text-align: center;
+}
+
+.page h1 {
+    margin-top: 2em;
+}
+
+.page embed {
+
+    margin: 2em;
+}
+
+article {
+
+    font-size: 25px;
+
+}
+
+article#bio p {
+    text-align: justify;
+    line-height: 2em;
+    
+}
+
+article#bio img {
+    width: 300px;
+    float: left;
+    margin-right: 1em;
+}
+
+article figure {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+article#bio div figure img{
+   margin: 0 auto;
+}
+article#bio div figure iframe{
+    margin: 0 auto;
+ }
+article#bio div figure figcaption{
+    font-size: 16px;
+}
+
+.contact img {
+    width: 200px;
+    height: 75px;
+}
+
+.contact-body {
+    width: 80%;
+    height: 80%;
+    padding: 5em;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.5em;
+    margin-bottom: 4em;
+}
+
+footer .prompt_cursor {
+    margin-top: 20px;
+    height: 17px
+}
+
+/* Projects CSS*/
+
+
+#project-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.slider {
+    width: 70vw;
+    text-align: center;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+
+
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    /*
+    scroll-snap-points-x: repeat(300px);
+    scroll-snap-type: mandatory;
+    */
+}
+
+.slides::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.slides::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+}
+
+.slides::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.slides>div {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 70vw;
+    height: 80vh;
+    margin-right: 50px;
+    border-radius: 10px;
+    background: inherit;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+}
+
+
+
+
+.slider>a {
+    display: inline-flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: white;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 0 0.5rem 0;
+    position: relative;
+}
+
+.slider>a:active {
+    top: 1px;
+}
+
+.slider>a:focus {
+    background: #000;
+}
+
+/* Don't need button navigation */
+@supports (scroll-snap-type) {
+    .slider>a {
+        display: none;
+    }
+}
+
+/* Projects CSS ENDS*/
+.center {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Matric Text CSS StART */
+
+.el-st {
+
+    font-size: 1em;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+.el-sp.is-changing {
+    animation: changing 0.1s infinite;
+}
+
+.el-sp {
+    transition: all 0.1s;
+    text-shadow: 0 0 10px #8630ab;
+    position: relative;
+    will-change: transform, opacity;
+}
+
+.el-sp:after {
+    content: attr(data-txt);
+    color: #eee;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.el-sp.is-changing:after {
+    animation: changingAfter 0.4s infinite alternate;
+}
+
+.scroll {
+    margin-top: 40px;
+    color: #8630ab;
+    display: inline-block;
+    padding-bottom: 3px;
+    padding-right: 40px;
+    position: relative;
+}
+
+.scroll:after {
+    content: '';
+    position: absolute;
+    left: calc(100% - 35px);
+    top: 0;
+    animation: dots 2s infinite;
+}
+
+@keyframes changing {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes changingAfter {
+    0% {
+        opacity: 0.3;
+        transform: translateX(10px) scaleX(2)
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateX(0) scaleX(2)
+    }
+
+    100% {
+        opacity: 0.3;
+        transform: translateX(-10px) scaleX(2)
+    }
+}
+
+@keyframes dots {
+    0% {
+        content: ''
+    }
+
+    25% {
+        content: '.'
+    }
+
+    50% {
+        content: '..'
+    }
+
+    75% {
+        content: '...'
+    }
+}
+
+/* Matric Text CSS END */
+
+/* TERMINAL PROMPT THEME CSS StART */
+.Terminal__body {
+
+    font-family: "Ubuntu mono";
+    font-size: 0.4em;
+}
+
+.Terminal__text {
+    color: #ddd;
+}
+
+.Terminal__Prompt {
+    margin-top: 10px;
+    display: flex;
+}
+
+.Terminal__Prompt a {
+    text-decoration: none;
+}
+
+.Terminal__Prompt a:visited {
+    color: inherit;
+}
+
+
+.Prompt__user {
+    color: #87d441;
+}
+
+.Prompt__location {
+    color: #6d85a9;
+}
+
+.Prompt__dollar {
+    color: #ddd;
+}
+
+.prompt_cursor {
+    height: 32px;
+    width: 8px;
+    background: white;
+    display: inline-block;
+    margin-top: 8px;
+    margin-left: 8px;
+    animation: 750ms ease infinite alternate blink;
+
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* TERMINAL PROMPT THEME CSS END */
